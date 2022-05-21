@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
+/*   {
+    path: '',
+    redirectTo: 'folder/Inbox',
+    pathMatch: 'full'
+  }, */
   {
     path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    component: LoginComponent
   },
   {
     path: 'folder/:id',

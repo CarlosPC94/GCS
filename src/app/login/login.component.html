@@ -1,3 +1,28 @@
-<p>
-  login works!
-</p>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>HealthApp</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+ 
+  <form>
+    <div class="input-group">
+      <ion-item>
+        <ion-input  id="email" type="email" placeholder="Email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+      </ion-item>
+    </div>
+ 
+    <ion-button type="submit" (click)="login()" expand="block">Log in</ion-button>
+
+    <ion-label class="normal-label">Not yet a member ? </ion-label>
+ 
+    <ion-button type="button" expand="block" color="secondary">
+      <ion-icon name="logo-google" slot="start"></ion-icon>
+      Sign in up!
+    </ion-button>
+  </form>
+</ion-content>

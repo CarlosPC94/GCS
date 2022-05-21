@@ -1,0 +1,30 @@
+ion-content {
+    --padding-top: 40%;
+    --padding-start: 10%;
+    --padding-end: 10%;
+    --background: url('https://img.freepik.com/free-photo/front-view-hand-holding-heart-shape_23-2148635109.jpg?t=st=1653133012~exp=1653133612~hmac=523edeb340e1c6341c18eeec07dd95c461571da45401ed0268f97fd4336bfbb2&w=740') 0 0/100% 100% no-repeat;
+}
+ 
+.input-group {
+    background: rgb(248, 212, 212);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+ 
+.errors {
+    font-size: small;
+    color: #fff;
+    background: var(--ion-color-danger);
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.normal-label{
+    color: black;
+}
+
+.ion-tolbar {
+    background-color: rgb(250, 219, 216);
+}
