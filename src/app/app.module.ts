@@ -14,13 +14,17 @@ import { LoginComponent } from './login/login.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { RegisterComponent } from './register/register.component';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AjustesComponent } from './backend/ajustes/ajustes.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent],
+  declarations: [AppComponent, LoginComponent, AjustesComponent, RegisterComponent],
   entryComponents: [],
   imports: [BrowserModule, CommonModule, IonicModule.forRoot(), AppRoutingModule,
      RouterModule, FormsModule, ReactiveFormsModule,
-      AngularFireModule.initializeApp(environment.firebaseConfig)],
+      AngularFireModule.initializeApp(environment.firebaseConfig),
+      AngularFirestoreModule, AngularFireStorageModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
