@@ -5,24 +5,23 @@
 </ion-header>
  
 <ion-content>
- 
-  <form>
     <div class="input-group">
       <ion-item>
-        <ion-input  id="email" type="email" placeholder="Email" formControlName="email"></ion-input>
+        <ion-input  id="email" type="email" placeholder="Email"  [(ngModel)]="usuario.email"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+        <ion-input type="password" placeholder="Password"  [(ngModel)]="usuario.password"></ion-input>
       </ion-item>
     </div>
  
     <ion-button type="submit" (click)="login()" expand="block">Log in</ion-button>
-
+    <ion-button type="submit" color="danger" (click)="loginWithGoogle()" expand="block">Log in with Google <ion-icon style="margin-left: 5px;" name="logo-google"></ion-icon></ion-button>
+    <ion-button type="submit" color="danger" (click)="getUserLogged()" expand="block">Obtener usuario <ion-icon style="margin-left: 5px;" name="logo-google"></ion-icon></ion-button>
+    <ion-button type="submit" color="danger" (click)="logOut()" expand="block">Desloguear usuario <ion-icon style="margin-left: 5px;" name="logo-google"></ion-icon></ion-button>
     <ion-label class="normal-label">Not yet a member ? </ion-label>
  
-    <ion-button type="button" expand="block" color="secondary">
-      <ion-icon name="logo-google" slot="start"></ion-icon>
+    <ion-button type="button" expand="block" color="secondary" href="/register" routerLinkActive="active">
       Sign in up!
     </ion-button>
-  </form>
+  <router-outlet></router-outlet>
 </ion-content>
