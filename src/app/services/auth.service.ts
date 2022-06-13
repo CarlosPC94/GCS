@@ -1,20 +1,24 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app'
+import { FirestoreService } from './firestore.service';
+import { InteractionService } from './interaction.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor( private afauth: AngularFireAuth) { }
+  constructor( private afauth: AngularFireAuth, private interactionservice: InteractionService, private router:Router) { }
 
 
   async register(email: string, password: string){
     try {
       return await this.afauth.createUserWithEmailAndPassword(email,password);
     } catch (err) {
-      console.log("Error en login: " + err)
+      console.log("Error en login: " + err);
+      this.interactionservice.presentToast(err);
       return null;
     }
   }
@@ -22,9 +26,12 @@ export class AuthService {
 
   async login(email: string, password: string){
     try {
-      return await this.afauth.signInWithEmailAndPassword(email,password);
+      var aux = await this.afauth.signInWithEmailAndPassword(email,password);
+      this.interactionservice.presentToast("Sesión Iniciada con Éxito")
+      return aux;
     } catch (err) {
       console.log("Error en login: " + err)
+      this.interactionservice.presentToast("Credenciales Inválidas")
       return null;
     }
   }
@@ -44,5 +51,14 @@ export class AuthService {
 
   logOut(){
     this.afauth.signOut();
+  }
+
+  comprobarPermisos(){
+    this.getUserLogged().subscribe(res => {
+      if (res == null)
+        this.router.navigateByUrl('')
+      else
+        localStorage.setItem("User", JSON.stringify(res));
+    })
   }
 }

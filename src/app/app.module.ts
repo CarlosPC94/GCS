@@ -17,9 +17,18 @@ import { RegisterComponent } from './register/register.component';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AjustesComponent } from './backend/ajustes/ajustes.component';
+import { ForoComponent } from './foro/foro.component';
+import { MenuNormalComponent } from './menu-normal/menu-normal.component';
+import { CrearForoComponent } from './foro/crear-foro/crear-foro.component';
+import { VerForoComponent } from './foro/ver-foro/ver-foro.component';
+import { MedicosComponent } from './medicos/medicos.component';
+import { VerMedicoComponent } from './medicos/ver-medico/ver-medico.component';
+import { RecetarioComponent } from './recetario/recetario.component';
+import { VerCategoriaComponent } from './recetario/ver-categoria/ver-categoria.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, AjustesComponent, RegisterComponent],
+  declarations: [AppComponent, LoginComponent, AjustesComponent, RegisterComponent, ForoComponent, MenuNormalComponent, CrearForoComponent,
+     VerForoComponent, MedicosComponent, VerMedicoComponent, RecetarioComponent, VerCategoriaComponent],
   entryComponents: [],
   imports: [BrowserModule, CommonModule, IonicModule.forRoot(), AppRoutingModule,
      RouterModule, FormsModule, ReactiveFormsModule,

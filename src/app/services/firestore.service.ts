@@ -12,4 +12,9 @@ export class FirestoreService {
     const collection = this.database.collection(path);
     return collection.doc(id).set(data);
   }
+
+  getCollection<tipo>(path: string){
+    const collection = this.database.collection<tipo>(path);
+    return collection.valueChanges();
+  }
 }

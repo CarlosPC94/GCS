@@ -1,0 +1,41 @@
+<ion-content>
+  <app-menu-normal></app-menu-normal>
+  <ion-header> </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{foro.Titulo}}</ion-card-title>
+      <ion-card-subtitle>{{foro.Categoria}}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{foro.Descripcion}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item *ngFor="let comentario of comentarios">
+    <ion-avatar slot="start">
+      <img src="https://img.freepik.com/foto-gratis/mujer-hermosa-joven-mirando-camara-chica-moda-verano-casual-camiseta-blanca-pantalones-cortos-hembra-positiva-muestra-emociones-faciales-modelo-divertido-aislado-amarillo_158538-15796.jpg?w=2000" />
+    </ion-avatar>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>{{comentario.Usuario}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        {{comentario.Texto}}
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-row align-items-center no-padding>
+      <ion-col size="10">
+        <textarea autosize maxRows="5" [(ngModel)]="mensaje" class="message-input" ></textarea>
+      </ion-col>     
+      <ion-col size="2" class="final-col">
+        <ion-button expand="block" fill="clear" color="primary" class="msg-btn" (click)="enviarMsj()"><ion-icon name="send-outline"></ion-icon></ion-button>
+      </ion-col> 
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

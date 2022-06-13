@@ -1,0 +1,14 @@
+<ion-content padding>
+  <ion-header><ion-button id="agregar" fill="clear" href="crearForo/"><ion-icon name="add-circle-outline"></ion-icon>
+  </ion-button></ion-header>
+  <ion-list>
+    <ion-list-header> Categorías: </ion-list-header>
+    <ion-item *ngFor="let categoria of recetarios" (click)="verCategoria(categoria)">
+      <ion-label>
+        <h1>{{categoria.Nombre}}</h1>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

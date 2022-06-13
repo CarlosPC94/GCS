@@ -1,0 +1,20 @@
+<ion-content padding>
+  <app-menu-normal></app-menu-normal>
+  <ion-header><ion-button id="agregar" fill="clear" href="crearForo/"><ion-icon name="add-circle-outline"></ion-icon>
+  </ion-button></ion-header>
+  <ion-list>
+    <ion-list-header> Temas Recientes: </ion-list-header>
+
+    <ion-item *ngFor="let foro of foros" (click)="verForo(foro)">
+      <ion-avatar slot="start">
+        <img src="https://img.freepik.com/foto-gratis/mujer-hermosa-joven-mirando-camara-chica-moda-verano-casual-camiseta-blanca-pantalones-cortos-hembra-positiva-muestra-emociones-faciales-modelo-divertido-aislado-amarillo_158538-15796.jpg?w=2000" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{foro.Titulo}}</h2>
+        <h3>{{foro.Categoria}}</h3>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

@@ -24,10 +24,13 @@ export class LoginComponent implements OnInit {
   
 
   login(){
-    /* this.route.navigate(['/folder/Inbox']); */
     const { email, password } = this.usuario;
     this.authService.login(email, password).then(res => {
-      console.log("Registro Correcto!", res)
+      if(res == null)
+        console.log("Registro Incorrecto!")
+        else {
+          this.route.navigateByUrl("/foro")
+        }
     })
   }
 

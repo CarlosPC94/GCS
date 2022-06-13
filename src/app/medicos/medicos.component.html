@@ -1,0 +1,14 @@
+<ion-content padding>
+  <app-menu-normal></app-menu-normal>
+  <ion-list>
+    <ion-list-header> Médicos: </ion-list-header>
+    <ion-item *ngFor="let medico of medicos" (click)="verMedico(medico)">
+      <ion-label>
+        <h2>{{medico.Nombre}} {{medico.Apellidos}}</h2>
+        <h3>{{medico.Ciudad}}</h3>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
