@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar >
     <ion-title>HealthApp</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -16,8 +16,6 @@
  
     <ion-button type="submit" (click)="login()" expand="block">Log in</ion-button>
     <ion-button type="submit" color="danger" (click)="loginWithGoogle()" expand="block">Log in with Google <ion-icon style="margin-left: 5px;" name="logo-google"></ion-icon></ion-button>
-    <ion-button type="submit" color="danger" (click)="getUserLogged()" expand="block">Obtener usuario <ion-icon style="margin-left: 5px;" name="logo-google"></ion-icon></ion-button>
-    <ion-button type="submit" color="danger" (click)="logOut()" expand="block">Desloguear usuario <ion-icon style="margin-left: 5px;" name="logo-google"></ion-icon></ion-button>
     <ion-label class="normal-label">Not yet a member ? </ion-label>
  
     <ion-button type="button" expand="block" color="secondary" href="/register" routerLinkActive="active">

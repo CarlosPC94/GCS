@@ -12,13 +12,18 @@ import { Medicos } from '../models/medicos';
 export class MedicosComponent implements OnInit {
 
   medicos: Medicos[] = [];
+  nombrePag: string;
+  rating: number;
 
-  constructor(private auth: AuthService, private db: FirestoreService, private router: Router) { }
+  constructor(private auth: AuthService, private db: FirestoreService, private router: Router) {
+
+  }
 
   ngOnInit() {
-
+    this.nombrePag = "Médicos"
     this.db.getCollection<Medicos>("Medicos").subscribe(res => {
       this.medicos = res;
+      console.log(this.medicos[0])
     })
 
   }
@@ -28,5 +33,4 @@ export class MedicosComponent implements OnInit {
     console.log(medico);
     this.router.navigateByUrl("/verMedico");
   }
-
 }

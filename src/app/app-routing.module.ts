@@ -1,3 +1,4 @@
+import { CrearRecetaComponent } from './recetario/ver-categoria/crear-receta/crear-receta.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AjustesComponent } from './backend/ajustes/ajustes.component';
@@ -10,6 +11,8 @@ import { MedicosComponent } from './medicos/medicos.component';
 import { VerMedicoComponent } from './medicos/ver-medico/ver-medico.component';
 import { RecetarioComponent } from './recetario/recetario.component';
 import { VerCategoriaComponent } from './recetario/ver-categoria/ver-categoria.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { VerRecetaComponent } from './recetario/ver-categoria/ver-receta/ver-receta.component';
 
 const routes: Routes = [
   {
@@ -51,6 +54,18 @@ const routes: Routes = [
   {
     path: 'verCategoria',
     component: VerCategoriaComponent
+  },
+  {
+    path: 'perfil',
+    component: PerfilComponent
+  },
+  {
+    path: 'crearReceta',
+    component: CrearRecetaComponent
+  },
+  {
+    path: 'verReceta',
+    component: VerRecetaComponent
   }
 ];
 

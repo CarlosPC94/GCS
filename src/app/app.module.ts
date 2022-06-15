@@ -25,15 +25,22 @@ import { MedicosComponent } from './medicos/medicos.component';
 import { VerMedicoComponent } from './medicos/ver-medico/ver-medico.component';
 import { RecetarioComponent } from './recetario/recetario.component';
 import { VerCategoriaComponent } from './recetario/ver-categoria/ver-categoria.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { CustomHeaderComponent } from './custom-header/custom-header.component';
+import { NgxStarRatingModule } from 'ngx-star-rating';
+import { CrearRecetaComponent } from './recetario/ver-categoria/crear-receta/crear-receta.component';
+import { VerRecetaComponent } from './recetario/ver-categoria/ver-receta/ver-receta.component';
+
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, AjustesComponent, RegisterComponent, ForoComponent, MenuNormalComponent, CrearForoComponent,
-     VerForoComponent, MedicosComponent, VerMedicoComponent, RecetarioComponent, VerCategoriaComponent],
+     VerForoComponent, MedicosComponent, VerMedicoComponent, RecetarioComponent, VerCategoriaComponent, PerfilComponent, CustomHeaderComponent,
+      CrearRecetaComponent, VerRecetaComponent],
   entryComponents: [],
   imports: [BrowserModule, CommonModule, IonicModule.forRoot(), AppRoutingModule,
      RouterModule, FormsModule, ReactiveFormsModule,
       AngularFireModule.initializeApp(environment.firebaseConfig),
-      AngularFirestoreModule, AngularFireStorageModule],
+      AngularFirestoreModule, AngularFireStorageModule, NgxStarRatingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

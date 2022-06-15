@@ -8,10 +8,14 @@ import { Medicos } from 'src/app/models/medicos';
 })
 export class VerMedicoComponent implements OnInit {
 
-  constructor() { }
   medico: any;
+  nombrePag: string;
+  constructor() { }
+  
   ngOnInit() {
+    this.nombrePag = "Médico"
     this.medico = JSON.parse(localStorage.getItem("medico"));
+    console.log(this.medico.Valoraciones)
   }
 
 }

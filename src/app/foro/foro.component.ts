@@ -19,8 +19,10 @@ export class ForoComponent implements OnInit {
   coche: String;
   foros: Temas[] = [];
   user: any;
+  nombrePag: string;
 
   ngOnInit() {
+    this.nombrePag = "Foro"
     this.auth.comprobarPermisos();
     this.user = JSON.parse(localStorage.getItem("User"));
     console.log(this.user)
@@ -34,7 +36,10 @@ export class ForoComponent implements OnInit {
     var aux = {
       Titulo : foro.Titulo,
       Categoria : foro.Categoria,
-      Descripcion : foro.Descripcion
+      Descripcion : foro.Descripcion,
+      user: foro.user,
+      image: foro.image
+
     }
     localStorage.setItem("foro", JSON.stringify(aux));
     this.router.navigateByUrl("/verForo")

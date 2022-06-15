@@ -1,0 +1,8 @@
+<ion-header translucent no-border>
+  <ion-toolbar>
+    <ion-title>{{varName}}</ion-title>
+    <ion-button id="menu-button" color="light" (click)="abrirMenu()"><ion-icon name="grid-outline"></ion-icon></ion-button>
+    <ion-button *ngIf="varName == 'Almuerzos' || varName == 'Aperitivos' || varName == 'Bebidas' || varName == 'Cenas' || varName == 'Comidas' || varName == 'Desayunos'
+    || varName == 'Meriendas' || varName == 'Snacks'" id="agregar" fill="clear" href="/crearReceta"><ion-icon name="add-circle-outline"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-header>

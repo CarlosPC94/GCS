@@ -13,14 +13,21 @@ export class CrearForoComponent implements OnInit {
   public tema = {
     Titulo : "",
     Categoria: "",
-    Descripcion: ""
+    Descripcion: "",
+    image: "",
+    user: ""
   }
+  usuario: any;
   constructor(private db: FirestoreService, private toast: InteractionService, private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.usuario = JSON.parse(localStorage.getItem("User"));
+  }
 
   crearTema(){
-    this.db.createDoc(this.tema, "Temas", this.tema.Titulo).then(res => {
+    this.tema.image = this.usuario.photoURL;
+    this.tema.user = this.usuario.displayName;
+    this.db.createDoc(this.tema, "Temas", this.tema.Titulo).then(() => {
       console.log("Se ha creado correctamente");  
       this.toast.presentLoading("Cargando").then(() => {
         this.toast.closeLoading();

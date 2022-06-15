@@ -7,7 +7,7 @@
 <ion-content>
     <div class="input-group">
       <ion-item>
-        <ion-input  id="Name" type="text" placeholder="Name"></ion-input>
+        <ion-input  id="Name" type="text" placeholder="Name" [(ngModel)]="usuario.nombre"></ion-input>
       </ion-item>
       <ion-item>
         <ion-input  id="email" type="email" placeholder="Email" [(ngModel)]="usuario.email"></ion-input>
@@ -17,6 +17,9 @@
       </ion-item>
       <ion-item>
         <ion-input type="password" placeholder="Repeat Password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <input type="file" accept=".png, .jpg, .jpeg" (change)="cargarImagen($event)">
       </ion-item>
     </div>
  

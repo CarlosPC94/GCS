@@ -1,21 +1,24 @@
 <ion-content>
   <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
   <ion-header> </ion-header>
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title>{{foro.Titulo}}</ion-card-title>
-      <ion-card-subtitle>{{foro.Categoria}}</ion-card-subtitle>
+      <img src="{{foro.image}}">{{foro.user}}
+      <div class="linea"></div>
     </ion-card-header>
   
     <ion-card-content>
+      <ion-card-title>{{foro.Titulo}}</ion-card-title>
+      <ion-card-subtitle>{{foro.Categoria}}</ion-card-subtitle>
       {{foro.Descripcion}}
     </ion-card-content>
   </ion-card>
 
   <ion-item *ngFor="let comentario of comentarios">
     <ion-avatar slot="start">
-      <img src="https://img.freepik.com/foto-gratis/mujer-hermosa-joven-mirando-camara-chica-moda-verano-casual-camiseta-blanca-pantalones-cortos-hembra-positiva-muestra-emociones-faciales-modelo-divertido-aislado-amarillo_158538-15796.jpg?w=2000" />
+      <img src="{{comentario.image}}" />
     </ion-avatar>
     <ion-card>
       <ion-card-header>
@@ -24,6 +27,9 @@
       <ion-card-content>
         {{comentario.Texto}}
       </ion-card-content>
+<!--       <ion-card-footer>
+        {{comentario.date}}
+      </ion-card-footer> -->
     </ion-card>
   </ion-item>
 </ion-content>

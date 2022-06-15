@@ -1,16 +1,18 @@
 <ion-content padding>
   <app-menu-normal></app-menu-normal>
-  <ion-header><ion-button id="agregar" fill="clear" href="crearForo/"><ion-icon name="add-circle-outline"></ion-icon>
-  </ion-button></ion-header>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
+  <!-- <ion-button id="agregar" fill="clear" href="crearForo/"><ion-icon name="add-circle-outline"></ion-icon>
+  </ion-button> -->
   <ion-list>
     <ion-list-header> Temas Recientes: </ion-list-header>
 
     <ion-item *ngFor="let foro of foros" (click)="verForo(foro)">
       <ion-avatar slot="start">
-        <img src="https://img.freepik.com/foto-gratis/mujer-hermosa-joven-mirando-camara-chica-moda-verano-casual-camiseta-blanca-pantalones-cortos-hembra-positiva-muestra-emociones-faciales-modelo-divertido-aislado-amarillo_158538-15796.jpg?w=2000" />
+        <img src="{{foro.image}}" />
       </ion-avatar>
       <ion-label>
-        <h2>{{foro.Titulo}}</h2>
+        <h1>{{foro.Titulo}}</h1>
+        <h2>{{foro.user}}</h2>
         <h3>{{foro.Categoria}}</h3>
       </ion-label>
     </ion-item>

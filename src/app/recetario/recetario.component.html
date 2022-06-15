@@ -1,11 +1,12 @@
 <ion-content padding>
-  <ion-header><ion-button id="agregar" fill="clear" href="crearForo/"><ion-icon name="add-circle-outline"></ion-icon>
-  </ion-button></ion-header>
+  <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
   <ion-list>
-    <ion-list-header> Categorías: </ion-list-header>
+    <ion-list-header> ¿Qué te apetece hoy? </ion-list-header>
     <ion-item *ngFor="let categoria of recetarios" (click)="verCategoria(categoria)">
       <ion-label>
-        <h1>{{categoria.Nombre}}</h1>
+        <img src="{{categoria.image}}">{{categoria.Nombre}}
+        
       </ion-label>
     </ion-item>
 

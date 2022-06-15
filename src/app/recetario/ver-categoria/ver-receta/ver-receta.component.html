@@ -1,0 +1,22 @@
+<ion-content>
+  <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{receta.Nombre}}</ion-card-title>
+      <img src="{{receta.image}}">
+    </ion-card-header>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Ingredientes:</ion-card-subtitle>
+      <ion-label>{{receta.ingredientes}}</ion-label>
+    </ion-card-header>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Descripción/Receta:</ion-card-subtitle>
+      <ion-label>{{receta.descripcion}}</ion-label>
+    </ion-card-header>
+  </ion-card>
+</ion-content>

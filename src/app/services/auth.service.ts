@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
@@ -10,12 +11,31 @@ import { InteractionService } from './interaction.service';
 })
 export class AuthService {
 
-  constructor( private afauth: AngularFireAuth, private interactionservice: InteractionService, private router:Router) { }
 
+  constructor( private afauth: AngularFireAuth, private interactionservice: InteractionService, private router:Router, private db: FirestoreService) { }
 
-  async register(email: string, password: string){
+  user = {
+    nombre : '',
+    email : '',
+    image: ''
+  }
+
+  async register(email: string, password: string, nick: string, image: any){
     try {
-      return await this.afauth.createUserWithEmailAndPassword(email,password);
+      await this.afauth.createUserWithEmailAndPassword(email,password).then( res => {
+        this.user.nombre = nick;
+        this.user.email = email;
+        var ruta = "users/" + email;
+        this.db.subirImagen(ruta, image).then(respuesta => {
+          this.user.image = respuesta;
+          this.db.createDoc(this.user, "Users", email)
+          res.user.updateProfile({
+          displayName: nick,
+          photoURL: respuesta
+        })
+        this.interactionservice.presentToast("Registro Completado Satisfactoriamente!")
+        })       
+      })
     } catch (err) {
       console.log("Error en login: " + err);
       this.interactionservice.presentToast(err);
@@ -38,7 +58,9 @@ export class AuthService {
 
   async loginWithGoogle(email: string, password: string){
     try {
-      return await this.afauth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+      var aux = await this.afauth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+      this.router.navigateByUrl("/foro")
+      return aux
     } catch (err) {
       console.log("Error en login con Google: " + err)
       return null;

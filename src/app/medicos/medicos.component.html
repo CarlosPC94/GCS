@@ -1,11 +1,14 @@
 <ion-content padding>
   <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
   <ion-list>
-    <ion-list-header> Médicos: </ion-list-header>
     <ion-item *ngFor="let medico of medicos" (click)="verMedico(medico)">
       <ion-label>
-        <h2>{{medico.Nombre}} {{medico.Apellidos}}</h2>
+        <h1>{{medico.Nombre}}</h1>
+        <h2>{{medico.Especializacion}}</h2>
         <h3>{{medico.Ciudad}}</h3>
+        <p id="nota">({{medico.Valoracion}}/5)</p><ngx-star-rating [(ngModel)]="medico.round" [disabled]="true"></ngx-star-rating>
+
       </ion-label>
     </ion-item>
 

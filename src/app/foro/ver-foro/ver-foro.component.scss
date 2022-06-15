@@ -16,3 +16,22 @@
 .final-col{
     padding-bottom: var(--ion-grid-column-padding-xs, var(--ion-grid-column-padding, 0px));
 }
+ion-card-header{
+
+}
+
+ion-card-header img{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 10rem;
+    vertical-align: middle;
+    margin-right: 1rem;
+}
+
+.linea {
+    border-top: 1px solid black;
+    height: 2px;
+    max-width: 100%;
+    padding: 0;
+    margin: 20px auto 0 auto;
+  }

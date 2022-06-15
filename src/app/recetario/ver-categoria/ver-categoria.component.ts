@@ -14,15 +14,23 @@ export class VerCategoriaComponent implements OnInit {
 
   categoria: any;
   recetas: Receta[] = [];
+  nombrePag: string;
   constructor(private auth: AuthService, private db: FirestoreService, private router: Router) { }
 
   ngOnInit() {
+    
     this.categoria = JSON.parse(localStorage.getItem("categoria"));
+    this.nombrePag = this.categoria.Nombre;
     console.log(this.categoria)
     this.db.getCollection<Receta>("Recetario/"+this.categoria.Nombre+"/Recetas").subscribe(res => {
       this.recetas = res;
       console.log(this.recetas);
     })
+  }
+
+  verReceta(receta: any){
+    localStorage.setItem("receta", JSON.stringify(receta));
+    this.router.navigateByUrl("/verReceta")
   }
 
 }

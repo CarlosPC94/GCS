@@ -1,0 +1,29 @@
+<ion-content padding>
+  <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Nombre:</ion-card-subtitle>
+      <ion-input type="text" [(ngModel)]="receta.Nombre"></ion-input>
+    </ion-card-header> 
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Imagen:</ion-card-subtitle>
+      <ion-input type="file" accept=".png, .jpg, .jpeg" (change)="cargarImagen($event)"></ion-input>
+    </ion-card-header> 
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Ingredientes:</ion-card-subtitle>
+      <ion-textarea placeholder="Introduce los ingredientes... " [(ngModel)]="receta.ingredientes"></ion-textarea>
+    </ion-card-header> 
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Descripción/Receta:</ion-card-subtitle>
+      <ion-textarea id="descripcion" placeholder="Introduce la receta o descripcion..." [(ngModel)]="receta.descripcion"></ion-textarea>
+    </ion-card-header> 
+  </ion-card>
+  <ion-button id="upbutton" size="Medium" color="light" (click)="crearReceta()">Subir Receta <ion-icon id="icon" name="cloud-upload-outline"></ion-icon></ion-button>
+</ion-content>

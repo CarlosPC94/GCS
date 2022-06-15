@@ -12,10 +12,12 @@ import { Recetario } from '../models/recetario';
 export class RecetarioComponent implements OnInit {
 
   recetarios: Recetario[] = [];
+  nombrePag: string;
 
   constructor(private auth: AuthService, private db: FirestoreService, private router: Router) { }
 
   ngOnInit() {
+    this.nombrePag = "Recetario"
     this.db.getCollection<Recetario>("Recetario").subscribe(res => {
       this.recetarios = res;
       console.log(this.recetarios)
