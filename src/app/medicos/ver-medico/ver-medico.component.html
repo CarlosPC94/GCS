@@ -17,5 +17,6 @@
       <p id="nota">({{medico.Valoracion}}/5)</p><ngx-star-rating [(ngModel)]="medico.round" [disabled]="true"></ngx-star-rating>
       <p id="opiniones">{{medico.Valoraciones}} Opiniones</p>
     </ion-card-header>
+    <ion-button (click)="valorarMedico()" ></ion-button>
   </ion-card>
 </ion-content>

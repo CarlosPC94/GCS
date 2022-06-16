@@ -14,6 +14,7 @@ export class MedicosComponent implements OnInit {
   medicos: Medicos[] = [];
   nombrePag: string;
   rating: number;
+  ids: string[] = [];
 
   constructor(private auth: AuthService, private db: FirestoreService, private router: Router) {
 
@@ -23,14 +24,17 @@ export class MedicosComponent implements OnInit {
     this.nombrePag = "Médicos"
     this.db.getCollection<Medicos>("Medicos").subscribe(res => {
       this.medicos = res;
-      console.log(this.medicos[0])
     })
+
+    this.db.getIds("Medicos", this.ids);
 
   }
 
-  verMedico(medico: Medicos){
-    localStorage.setItem("medico", JSON.stringify(medico));
-    console.log(medico);
+  verMedico(medico: Medicos, i: number){
+    medico.id = this.ids[i];
+    console.log(medico.id)
+    localStorage.setItem("medico", medico.id)
+    /* localStorage.setItem("medico", JSON.stringify(medico)); */
     this.router.navigateByUrl("/verMedico");
   }
 }

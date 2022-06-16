@@ -38,8 +38,7 @@ export class VerForoComponent implements OnInit {
       image: this.user.photoURL,
       date: new Date()
     }
-    var id = Math.floor(Math.random() * (9999999999 - 11111111)) + 1111111;
-    this.db.createDoc(data, "Temas/"+ this.foro.Titulo + "/Comentarios", id.toString()).then(() => {
+    this.db.createDoc(data, "Temas/"+ this.foro.Titulo + "/Comentarios", this.db.createId()).then(() => {
       this.toast.presentToast("Mensaje Publicado Correctamente!")
     })
   }

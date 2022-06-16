@@ -41,7 +41,7 @@ export class CrearRecetaComponent implements OnInit {
   }
 
   crearReceta(){
-    this.db.createDocWithImage(this.receta, this.receta.ruta, this.receta.Nombre).then(() => {
+    this.db.createDocWithImage(this.receta, this.receta.ruta, this.db.createId()).then(() => {
       this.router.navigateByUrl("/verCategoria")
     })
   }

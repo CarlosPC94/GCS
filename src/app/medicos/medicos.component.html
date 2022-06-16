@@ -2,7 +2,7 @@
   <app-menu-normal></app-menu-normal>
   <app-custom-header [varName]="nombrePag"></app-custom-header>
   <ion-list>
-    <ion-item *ngFor="let medico of medicos" (click)="verMedico(medico)">
+    <ion-item *ngFor="let medico of medicos; index as i" (click)="verMedico(medico, i)">
       <ion-label>
         <h1>{{medico.Nombre}}</h1>
         <h2>{{medico.Especializacion}}</h2>

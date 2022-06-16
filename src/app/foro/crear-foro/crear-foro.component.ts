@@ -27,7 +27,7 @@ export class CrearForoComponent implements OnInit {
   crearTema(){
     this.tema.image = this.usuario.photoURL;
     this.tema.user = this.usuario.displayName;
-    this.db.createDoc(this.tema, "Temas", this.tema.Titulo).then(() => {
+    this.db.createDoc(this.tema, "Temas", this.db.createId()).then(() => {
       console.log("Se ha creado correctamente");  
       this.toast.presentLoading("Cargando").then(() => {
         this.toast.closeLoading();
