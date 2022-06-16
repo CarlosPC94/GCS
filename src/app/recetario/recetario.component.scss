@@ -6,5 +6,8 @@ ion-label img{
     margin-right: 1rem;
 }
 
-ion-list-header{
+ion-list{
+    --ion-background-color: white;
 }
+
+ion-content{ --ion-background-color:#eedae2; }

@@ -1,10 +1,18 @@
-.card-body{
-    margin: 2rem;
+ion-card{
+    text-align: center;
 }
 
-.card-body img{
-    height: 15rem;
-    width: 15rem;
-    border-radius: 10rem;
-    margin-left: 2.5rem;
+img{
+
+    width: 50vh;
+    height: 35vh;
+    border-radius: 15rem;
+    margin-bottom: 5vh;
+
 }
+
+ion-card{
+    --ion-background-color: white;
+}
+
+ion-content{ --ion-background-color:#eedae2; }
