@@ -34,7 +34,6 @@ export class MedicosComponent implements OnInit {
     medico.id = this.ids[i];
     console.log(medico.id)
     localStorage.setItem("medico", medico.id)
-    /* localStorage.setItem("medico", JSON.stringify(medico)); */
     this.router.navigateByUrl("/verMedico");
   }
 }

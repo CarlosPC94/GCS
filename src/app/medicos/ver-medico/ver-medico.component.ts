@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Medicos } from 'src/app/models/medicos';
 import { FirestoreService } from 'src/app/services/firestore.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { InteractionService } from 'src/app/services/interaction.service';
 
 @Component({
   selector: 'app-ver-medico',
@@ -13,28 +15,41 @@ export class VerMedicoComponent implements OnInit {
   id: string;
   random: any;
   nombrePag: string;
-  constructor(private db: FirestoreService) { }
+  public form: FormGroup;
+  rating: number;
+  valorado: boolean;
+
+  constructor(private db: FirestoreService, private fb: FormBuilder, private toast: InteractionService) { }
   
   ngOnInit() {
+    this.valorado = false;
     this.nombrePag = "Médico"
     this.medico = localStorage.getItem("medico");
     this.db.getDocById<Medicos>("Medicos", this.medico).subscribe(res => {
       this.id = this.medico
       this.medico = res
     })
-
+    this.rating = 0;
+    this.form = this.fb.group({
+      rating: ['', Validators.required],
+    })
     
   }
 
   valorarMedico(){
-    let valoraciones: number = this.medico.Valoraciones + 1;
-    let valoracion: number = 2;
-    let calculo: number = (valoracion + (this.medico.Valoraciones*this.medico.Valoracion))/valoraciones;
-    let round: number = Math.round(calculo);
+    this.valorado = true;
+    let valoracion = this.form.value.rating;
+    let valoraciones = this.medico.Valoraciones + 1;
+    let calculo = (valoracion + (this.medico.Valoraciones*this.medico.Valoracion))/valoraciones;
+    let round = Math.round(calculo);
     calculo = calculo * 100;
     calculo = Math.round(calculo)/100;
     console.log(calculo);
     this.db.updateDoc("Medicos", this.id, valoraciones, calculo, round);
+    this.toast.presentLoading("Valorando ...").then(() => {
+      this.toast.closeLoading();
+      this.toast.presentToast("Gracias por tú valoración!")
+    })
   }
 
 }
