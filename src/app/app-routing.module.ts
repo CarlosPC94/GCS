@@ -1,3 +1,5 @@
+import { CrearCitaComponent } from './citas/crear-cita/crear-cita.component';
+import { CitasComponent } from './citas/citas.component';
 import { CrearRecetaComponent } from './recetario/ver-categoria/crear-receta/crear-receta.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
@@ -66,6 +68,14 @@ const routes: Routes = [
   {
     path: 'verReceta',
     component: VerRecetaComponent
+  },
+  {
+    path: 'citas',
+    component: CitasComponent
+  },
+  {
+    path: 'crearCita',
+    component: CrearCitaComponent
   }
 ];
 

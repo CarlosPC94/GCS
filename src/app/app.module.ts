@@ -30,12 +30,14 @@ import { CustomHeaderComponent } from './custom-header/custom-header.component';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { CrearRecetaComponent } from './recetario/ver-categoria/crear-receta/crear-receta.component';
 import { VerRecetaComponent } from './recetario/ver-categoria/ver-receta/ver-receta.component';
+import { CitasComponent } from './citas/citas.component';
+import { CrearCitaComponent } from './citas/crear-cita/crear-cita.component';
 
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, AjustesComponent, RegisterComponent, ForoComponent, MenuNormalComponent, CrearForoComponent,
      VerForoComponent, MedicosComponent, VerMedicoComponent, RecetarioComponent, VerCategoriaComponent, PerfilComponent, CustomHeaderComponent,
-      CrearRecetaComponent, VerRecetaComponent],
+      CrearRecetaComponent, VerRecetaComponent, CitasComponent, CrearCitaComponent],
   entryComponents: [],
   imports: [BrowserModule, CommonModule, IonicModule.forRoot(), AppRoutingModule,
      RouterModule, FormsModule, ReactiveFormsModule,

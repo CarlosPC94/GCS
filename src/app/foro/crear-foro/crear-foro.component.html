@@ -1,21 +1,33 @@
 <ion-content fullscreen>
-  <ion-list lines="full" class="ion-no-margin">
-    <ion-list-header lines="full">
-      <ion-label> Crea tu Propio Tema: </ion-label>
-    </ion-list-header>
-    <ion-item>
-      <ion-label>Título: </ion-label>
+  <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
+  <ion-card>
+    <ion-card-header lines="full">
+      <ion-card-title> Crea tu Propio Tema: </ion-card-title>
+      <ion-card-subtitle id="titulo">Título: </ion-card-subtitle>
       <ion-input placeholder="Introduce un título para tu post" [(ngModel)]="tema.Titulo"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="fixed">Categoría:</ion-label>
-      <ion-input placeholder="Escoge la Categoria adecuada" [(ngModel)]="tema.Categoria"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="stacked">Texto: </ion-label>
-      <ion-textarea placeholder="Describe tu post ... " [(ngModel)]="tema.Descripcion" autoGrow="true"></ion-textarea>
-    </ion-item>
-  </ion-list>
-  <ion-button (click)="crearTema()"><ion-icon name="checkmark-circle-outline"></ion-icon>Postear</ion-button>
+  </ion-card-header>  
+  </ion-card>
+  <ion-card>
+    <ion-card-header lines="full">
+      <ion-card-subtitle  position="fixed">Categoría:</ion-card-subtitle>
+      <ion-select placeholder="Selecciona una categoría" [(ngModel)]="tema.Categoria" >      
+        <ion-select-option value="Apoyo">Apoyo</ion-select-option>
+        <ion-select-option value="Amistad">Amistad</ion-select-option>
+        <ion-select-option value="Charla">Charla</ion-select-option>
+        <ion-select-option value="Consejos">Consejos</ion-select-option>
+        <ion-select-option value="Informacion">Informacion</ion-select-option>
+        <ion-select-option value="Nutricion">Nutrición</ion-select-option>
+        <ion-select-option value="Sugerencias">Sugerencias</ion-select-option>
+        <ion-select-option value="Historias">Historias</ion-select-option>
+      </ion-select>
+    </ion-card-header>
+    </ion-card>
+    <ion-card >
+      <ion-card-header id="tarjeta">
+        <ion-card-subtitle position="stacked">Texto: </ion-card-subtitle>
+        <ion-textarea  id="area" [(ngModel)]="tema.Descripcion" autoGrow="true"></ion-textarea>
+      </ion-card-header>
+    </ion-card>
+    <ion-button id="upbutton" size="Medium" color="light" (click)="crearTema()">Crear Tema <ion-icon id="icon" name="cloud-upload-outline"></ion-icon></ion-button>
 </ion-content>

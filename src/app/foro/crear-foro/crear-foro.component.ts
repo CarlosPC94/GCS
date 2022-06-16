@@ -18,13 +18,17 @@ export class CrearForoComponent implements OnInit {
     user: ""
   }
   usuario: any;
+  nombrePag: string;
+
   constructor(private db: FirestoreService, private toast: InteractionService, private router: Router) { }
 
   ngOnInit() {
+    this.nombrePag = "Crear Tema"
     this.usuario = JSON.parse(localStorage.getItem("User"));
   }
 
   crearTema(){
+    
     this.tema.image = this.usuario.photoURL;
     this.tema.user = this.usuario.displayName;
     this.db.createDoc(this.tema, "Temas", this.db.createId()).then(() => {
