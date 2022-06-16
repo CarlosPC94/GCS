@@ -28,3 +28,20 @@ ion-content {
 .ion-tolbar {
     background-color: rgb(250, 219, 216);
 }
+
+h1 { color: #d54d7b; font-family: 'Pacifico'; font-weight: normal; text-align: center; text-shadow: 0 1px 1px #fff; margin: auto;}
+
+ion-card{
+    margin: auto;
+    --ion-background-color: white;
+}
+
+ion-content{ --ion-background-color:#e1beca; }
+
+ion-label{
+    margin-left: 2rem;
+}
+
+ion-button{
+    margin: 2rem;
+}

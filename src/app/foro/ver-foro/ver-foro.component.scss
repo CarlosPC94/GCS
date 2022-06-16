@@ -34,4 +34,10 @@ ion-card-header img{
     max-width: 100%;
     padding: 0;
     margin: 20px auto 0 auto;
-  }
+}
+
+ion-card{
+    --ion-background-color: white;
+}
+
+ion-content{ --ion-background-color:#e1beca; }
