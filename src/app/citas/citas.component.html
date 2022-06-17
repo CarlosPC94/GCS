@@ -4,9 +4,10 @@
   <ion-list *ngFor="let cita of citas">
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Dr. {{cita.Nombre}}</ion-card-title>
+        <ion-card-title>{{cita.Nombre}}</ion-card-title>
         <p>Dia: {{cita.dia}}</p>
         <p>Hora: {{cita.hora}}</p>
+        <p>Motivo: {{cita.motivo}}</p>
       </ion-card-header>
     </ion-card>
   </ion-list>

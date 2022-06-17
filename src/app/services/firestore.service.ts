@@ -23,7 +23,7 @@ export class FirestoreService {
 
   async createDocWithImage(data: any, path: string, id: string) {
     const collection = this.database.collection(path);
-    await this.subirImagen(data.ruta, data.image).then(res => {
+    await this.subirImagen(data.ruta + this.createId(), data.image).then(res => {
       data.image = res;
     })
     return collection.doc(id).set(data)

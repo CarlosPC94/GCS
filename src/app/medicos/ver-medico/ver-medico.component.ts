@@ -3,6 +3,7 @@ import { Medicos } from 'src/app/models/medicos';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { InteractionService } from 'src/app/services/interaction.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ver-medico',
@@ -19,7 +20,7 @@ export class VerMedicoComponent implements OnInit {
   rating: number;
   valorado: boolean;
 
-  constructor(private db: FirestoreService, private fb: FormBuilder, private toast: InteractionService) { }
+  constructor(private db: FirestoreService, private fb: FormBuilder, private toast: InteractionService, private route: Router) { }
   
   ngOnInit() {
     this.valorado = false;
@@ -37,6 +38,7 @@ export class VerMedicoComponent implements OnInit {
   }
 
   valorarMedico(){
+    
     this.valorado = true;
     let valoracion = this.form.value.rating;
     let valoraciones = this.medico.Valoraciones + 1;
@@ -49,7 +51,12 @@ export class VerMedicoComponent implements OnInit {
     this.toast.presentLoading("Valorando ...").then(() => {
       this.toast.closeLoading();
       this.toast.presentToast("Gracias por tú valoración!")
+      localStorage.setItem("medic", JSON.stringify(this.medico))
     })
+  }
+
+  irCita(){
+    this.route.navigateByUrl("/crearCita");
   }
 
 }

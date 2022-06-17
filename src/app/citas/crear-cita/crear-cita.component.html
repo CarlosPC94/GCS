@@ -1,3 +1,20 @@
-<p>
-  crear-cita works!
-</p>
+<ion-content>
+  <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        {{medico.Nombre}}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-body>
+      <h5>Selecciona la fecha y hora de la cita:</h5>
+      <ion-datetime [(ngModel)]="fecha">
+
+      </ion-datetime>
+      <h5>Motivo de la cita:</h5>
+      <ion-textarea placeholder="Describe el motivo de la cita ..." [(ngModel)]="cita.motivo" ></ion-textarea>
+      <ion-button color="light" (click)="crearCita()" >Apuntar Cita</ion-button>
+    </ion-card-body>
+  </ion-card>
+</ion-content>

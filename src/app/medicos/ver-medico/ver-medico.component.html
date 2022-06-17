@@ -9,6 +9,8 @@
   
     <ion-card-content>
       Dirección: {{medico.Direccion}}
+      <br>
+      <ion-button color="medium" (click)="irCita()" >Apuntar Cita</ion-button>
     </ion-card-content>
   </ion-card>
   <ion-card>
@@ -33,5 +35,6 @@
         <p id="nota">({{this.form.value.rating}}/5)</p><ngx-star-rating [(ngModel)]="this.form.value.rating" [disabled]="true"></ngx-star-rating>
       </ion-card-header>
     </ion-card>
+    
   </ng-template>
 </ion-content>

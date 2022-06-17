@@ -26,7 +26,9 @@ export class RegisterComponent implements OnInit {
   SignIn(){
     /* this.route.navigate(['/folder/Inbox']); */
     const { email, password, nombre, image } = this.usuario;
-    this.authService.register(email, password, nombre, image)
+    this.authService.register(email, password, nombre, image).then(() => {
+      this.route.navigateByUrl("/")
+    })
   }
 
   cargarImagen(event: any){

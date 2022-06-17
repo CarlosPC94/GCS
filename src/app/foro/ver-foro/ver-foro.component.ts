@@ -40,6 +40,7 @@ export class VerForoComponent implements OnInit {
     }
     this.db.createDoc(data, "Temas/"+ this.foro.Titulo + "/Comentarios", this.db.createId()).then(() => {
       this.toast.presentToast("Mensaje Publicado Correctamente!")
+      this.mensaje = ''
     })
   }
 }
